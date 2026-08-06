@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+
+.form {
+  background-color: $bg-white;
+  padding: 40px;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-family: $font-heading;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: $text-primary;
+}
+
+.input, .textarea, .select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid $border-color;
+  border-radius: $radius-btn;
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $text-primary;
+  background-color: $bg-grey;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $green-primary;
+    box-shadow: 0 0 0 3px rgba(26, 107, 46, 0.1);
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 15px;
+  background-color: $green-primary;
+  color: $bg-white;
+  border: none;
+  border-radius: $radius-btn;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: $green-dark;
+  }
+  
+  &:disabled {
+    background-color: #a0c2a8;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,110 @@
+@use "../../styles/variables" as *;
+
+.container {
+  padding: 50px 0 80px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  
+  input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border-radius: 20px;
+    border: 1px solid $border-color;
+    font-size: 0.9rem;
+    font-family: $font-body;
+    color: $text-primary;
+    transition: all 0.25s ease;
+    background-color: $bg-white;
+    
+    &:focus {
+      outline: none;
+      border-color: $green-primary;
+      box-shadow: 0 0 0 3px rgba($green-primary, 0.1);
+    }
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-secondary;
+    pointer-events: none;
+  }
+}
+
+.categoryList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.categoryBtn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: $bg-grey;
+  color: $text-secondary;
+  
+  &:hover {
+    background-color: rgba($green-primary, 0.08);
+    color: $green-primary;
+  }
+  
+  &.active {
+    background-color: $green-primary;
+    color: $bg-white;
+    border-color: $green-primary;
+    box-shadow: 0 4px 10px rgba($green-primary, 0.15);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.noResults {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: $bg-grey;
+  border-radius: $radius-card;
+  border: 1px dashed $border-color;
+  
+  h3 {
+    font-family: $font-heading;
+    font-size: 1.3rem;
+    color: $green-dark;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: $text-secondary;
+    font-size: 0.95rem;
+  }
+}

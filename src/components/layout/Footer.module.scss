@@ -1,0 +1,101 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  position: relative;
+  color: $bg-white;
+  padding: 56px 0 20px;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Dark overlay for readability */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(5, 20, 8, 0.88) 100%
+  );
+  z-index: 1;
+}
+
+
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+.brandInfo {
+  img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 14px;
+    background-color: $bg-white;
+    padding: 4px 6px;
+    border-radius: 4px;
+  }
+
+  p {
+    color: #d0d0d0;
+    margin-bottom: 12px;
+    max-width: 300px;
+    font-size: 0.88rem;
+  }
+}
+
+.heading {
+  font-family: $font-heading;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: $bg-white;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  a {
+    color: #e0e0e0;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $green-accent;
+    }
+  }
+}
+
+.bottomBar {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+
+  p {
+    margin-bottom: 5px;
+  }
+}

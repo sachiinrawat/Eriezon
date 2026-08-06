@@ -1,0 +1,38 @@
+@use "../../styles/variables" as *;
+
+.pageHero {
+  position: relative;
+  padding: 142px 0 70px;
+  color: $bg-white;
+  text-align: center;
+  overflow: hidden;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  background: #0a2a0f;
+  isolation: isolate;
+  /* Pull up behind the fixed transparent navbar — same pattern as HeroSection */
+  margin-top: -72px;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  p {
+    font-size: 1rem;
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+  }
+}
+

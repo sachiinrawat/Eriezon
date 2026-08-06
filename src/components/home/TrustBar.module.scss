@@ -1,0 +1,56 @@
+@use "../../styles/variables" as *;
+
+.trustBar {
+  background-color: $green-light;
+  padding: 28px 0;
+  border-bottom: 1px solid $border-color;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  
+  @media (min-width: 768px) {
+    justify-content: space-around;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.number {
+  font-family: $font-heading;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $green-primary;
+  margin-bottom: 4px;
+}
+
+.label {
+  color: $text-secondary;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.isoBadge {
+  background-color: $bg-white;
+  padding: 10px 20px;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  
+  span {
+    font-family: $font-heading;
+    font-weight: 700;
+    color: $green-dark;
+  }
+}

@@ -1,0 +1,123 @@
+@use "../../../../styles/variables" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageSection {
+  // Must NOT have overflow:hidden — zoom panel uses position:fixed to escape
+  border-radius: $radius-card;
+  
+  @media (min-width: 1024px) {
+    align-self: start;
+    position: sticky;
+    top: 90px;
+  }
+}
+
+.categoryBadge {
+  background-color: $green-light;
+  color: $green-primary;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.title {
+  font-size: 3rem;
+  color: $text-primary;
+  margin-bottom: 10px;
+}
+
+.activeIngredient {
+  font-size: 1.2rem;
+  color: $text-secondary;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.detailsGroup {
+  margin-bottom: 30px;
+  
+  h3 {
+    font-size: 1.1rem;
+    color: $text-primary;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  p {
+    line-height: 1.6;
+    color: $text-secondary;
+  }
+}
+
+.tagList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: $bg-grey;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: $text-primary;
+}
+
+.downloadBtn {
+  display: inline-block;
+  background-color: $green-primary;
+  color: $bg-white;
+  padding: 15px 30px;
+  border-radius: $radius-btn;
+  font-weight: 700;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: $green-dark;
+  }
+}
+
+.dosageTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: $shadow-card;
+  border-radius: $radius-card;
+  overflow: hidden;
+  
+  th {
+    background-color: $green-primary;
+    color: $bg-white;
+    text-align: left;
+    padding: 15px 20px;
+    font-family: $font-heading;
+  }
+  
+  td {
+    padding: 15px 20px;
+    border-bottom: 1px solid $border-color;
+    background-color: $bg-white;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tr:nth-child(even) td {
+    background-color: $bg-grey;
+  }
+}

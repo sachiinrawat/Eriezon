@@ -1,0 +1,126 @@
+@use "../../styles/variables" as *;
+
+.section {
+  padding: 80px 0;
+  background-color: $bg-grey;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.2rem;
+  color: $green-dark;
+  font-weight: 800;
+  font-family: $font-heading;
+  margin-bottom: 48px;
+  position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: $green-accent;
+    border-radius: 2px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+  border-radius: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  cursor: pointer;
+  z-index: 1;
+  text-decoration: none;
+  box-shadow: $shadow-card;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  @media (min-width: 992px) {
+    &:nth-child(1),
+    &:nth-child(6) {
+      grid-column: span 2;
+    }
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    
+    .bgImage {
+      transform: scale(1.06);
+    }
+    
+    &::before {
+      background: linear-gradient(to top, rgba(13, 59, 26, 0.85) 0%, rgba(13, 59, 26, 0.3) 100%);
+    }
+  }
+
+  /* Overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 100%);
+    transition: background 0.4s ease;
+    z-index: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+.cardContent {
+  color: $bg-white;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+
+.cardTitle {
+  font-family: $font-heading;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: $bg-white;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}

@@ -1,0 +1,101 @@
+@use "../../styles/variables" as *;
+
+// ────────────────────────────────────────────────────
+// Root wrapper — fills the imageSection column
+// ────────────────────────────────────────────────────
+.root {
+  width: 100%;
+  position: relative;
+}
+
+// ────────────────────────────────────────────────────
+// Image container — the "thumbnail" side
+// ────────────────────────────────────────────────────
+.imgContainer {
+  position: relative;
+  width: 100%;
+  background-color: $bg-grey;
+  border-radius: $radius-card;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 380px;
+  overflow: hidden;
+  cursor: crosshair;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+// The actual <img> inside — dims slightly when lens is active so lens pops
+.mainImg {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+  transition: opacity 0.2s ease;
+
+  .imgContainerActive & {
+    opacity: 0.88;
+  }
+}
+
+// ────────────────────────────────────────────────────
+// Lens box — the highlight square that follows cursor
+// ────────────────────────────────────────────────────
+.lens {
+  position: absolute;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(1px);
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: none;
+  z-index: 10;
+}
+
+// ────────────────────────────────────────────────────
+// "Hover to zoom" hint badge
+// ────────────────────────────────────────────────────
+.hint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0.85;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+// ────────────────────────────────────────────────────
+// Zoom preview panel — appears beside the thumbnail
+// position: fixed is set inline via JS for exact placement
+// ────────────────────────────────────────────────────
+.zoomPanel {
+  border: 1px solid $border-color;
+  border-radius: $radius-card;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+  background-color: $bg-white;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}

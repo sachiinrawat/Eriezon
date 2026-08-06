@@ -1,0 +1,222 @@
+@use "../../../styles/variables" as *;
+
+/* ── Page wrapper ── */
+.page {
+  background: $bg-white;
+}
+
+/* ── Intro strip ── */
+.intro {
+  background: $bg-grey;
+  border-bottom: 1px solid $border-color;
+  padding: 40px 0 36px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.7rem;
+    color: $green-dark;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+}
+
+/* ── Crop list ── */
+.cropList {
+  padding: 40px 0 56px;
+
+  /* bordered card-like wrapper around all rows */
+  & > * {
+    border: 1px solid $border-color;
+    border-radius: $radius-card;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ── Single crop row ── */
+.cropRow {
+  display: flex;
+  align-items: stretch;
+  height: 380px;
+
+  /* every even row flips image to the right */
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ── Image side ── */
+.imagePane {
+  flex: 0 0 42%;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background: $green-dark;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  /* number badge */
+  .indexBadge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
+    background: $green-primary;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 0.8rem;
+    z-index: 2;
+  }
+
+  .reversed & .indexBadge {
+    left: auto;
+    right: 20px;
+  }
+}
+
+.cropRow:hover .imagePane img {
+  transform: scale(1.04);
+}
+
+/* ── Content side ── */
+.contentPane {
+  flex: 1;
+  padding: 44px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $bg-white;
+}
+
+/* accent bar above crop name */
+.accent {
+  width: 36px;
+  height: 3px;
+  background: $green-accent;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.cropName {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.scientificName {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: $green-primary;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
+}
+
+.description {
+  font-size: 0.92rem;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 460px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* pest tags */
+.pestTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 24px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: $green-light;
+  color: $green-primary;
+  border: 1px solid rgba($green-primary, 0.2);
+  white-space: nowrap;
+}
+
+/* CTA link */
+.viewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-heading;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $green-primary;
+  border: 1.5px solid $green-primary;
+  padding: 8px 20px;
+  border-radius: $radius-btn;
+  align-self: flex-start;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: $green-primary;
+    color: #fff;
+  }
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .contentPane {
+    padding: 32px 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cropRow,
+  .cropRow.reversed {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .imagePane {
+    flex: none;
+    height: 220px;
+  }
+
+  .contentPane {
+    padding: 28px 24px;
+  }
+}
