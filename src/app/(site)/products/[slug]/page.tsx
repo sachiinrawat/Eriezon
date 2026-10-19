@@ -126,7 +126,7 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   return (
-    <article className="container" style={{ padding: '72px 20px 80px' }}>
+    <article className="container" style={{ padding: '100px 20px 80px' }}>
       <div className={styles.grid}>
         
         {/* Left: Image — Amazon-style magnifier */}

@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { allProductsQuery, allCategoriesQuery } from "@/sanity/lib/queries";
-import PageHero from "@/components/common/PageHero";
 import ProductList from "@/components/products/ProductList";
 import { Category, Product } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Our Products | Eriezon Crop Science India",
-  description: "Explore our wide range of ISO certified crop protection solutions including herbicides, insecticides, and fungicides.",
+  title: "Eriezon Products | Crop Protection Solutions",
+  description: "Crop protection products built for precision and performance. Explore our range of ISO certified herbicides, insecticides, and fungicides.",
 };
 
 async function getProducts(): Promise<Product[]> {
@@ -22,15 +21,5 @@ export default async function ProductsPage() {
   const products = await getProducts();
   const categories = await getCategories();
 
-  return (
-    <>
-      <PageHero 
-        title="Product Portfolio" 
-        subtitle="Science-driven solutions for healthier crops and higher yields." 
-        videoUrl="/2.mp4"
-      />
-      <ProductList products={products} categories={categories} />
-    </>
-  );
+  return <ProductList products={products} categories={categories} />;
 }
-

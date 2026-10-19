@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Plus } from "lucide-react";
 import { urlFor } from "@/sanity/lib/image";
 import { Product } from "@/lib/types";
-import ProductCardImage from "./ProductCardImage";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {
@@ -9,29 +10,36 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const imageUrl = product.productImage
+    ? urlFor(product.productImage).width(600).url()
+    : "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop";
+
   return (
-    <div className={styles.card}>
-      {product.productImage ? (
-        <ProductCardImage
-          src={urlFor(product.productImage).width(600).url()}
+    <Link href={`/products/${product.slug}`} className={styles.card}>
+      {/* Product Image Canvas */}
+      <div className={styles.imageArea}>
+        <Image
+          src={imageUrl}
           alt={product.name}
-          category={product.category ?? ""}
+          width={400}
+          height={380}
+          className={styles.productImg}
+          priority={false}
         />
-      ) : (
-        <div className={styles.imageWrapper}>
-          <span className={styles.category}>{product.category}</span>
-          <div className={styles.placeholder}>No Image</div>
+      </div>
+
+      {/* Floating Frosted Glass Bottom Capsule */}
+      <div className={styles.capsule}>
+        <div className={styles.capsuleInfo}>
+          <h3 className={styles.title}>{product.name}</h3>
+          <p className={styles.technical}>
+            {product.activeIngredient || product.category || "Crop Protection"}
+          </p>
         </div>
-      )}
-      <div className={styles.content}>
-        <h3 className={styles.title}>{product.name}</h3>
-        <p className={styles.technical}>{product.activeIngredient || "Technical information pending"}</p>
-        <div className={styles.footer}>
-          <Link href={`/products/${product.slug}`} className={styles.btn}>
-            View Details
-          </Link>
+        <div className={styles.plusBtn} aria-hidden="true">
+          <Plus size={16} strokeWidth={2.5} />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

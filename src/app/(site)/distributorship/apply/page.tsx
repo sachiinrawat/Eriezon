@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ApplyPage() {
   return (
     <>
-      <section style={{ backgroundColor: "#0d3b1a", color: "#fff", padding: "60px 0", textAlign: "center" }}>
+      <section style={{ backgroundColor: "#0d3b1a", color: "#fff", padding: "110px 0 60px", textAlign: "center" }}>
         <div className="container">
           <h1 style={{ fontSize: "2.5rem", marginBottom: "15px" }}>Distributorship Application</h1>
           <p style={{ fontSize: "1.1rem", maxWidth: "600px", margin: "0 auto" }}>

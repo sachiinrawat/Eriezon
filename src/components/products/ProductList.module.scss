@@ -1,113 +1,181 @@
 @use "../../styles/variables" as *;
 
-.container {
-  padding: 50px 0 80px;
+.wrapper {
+  background-color: #fafbfa;
+  min-height: 100vh;
+  padding-top: 100px; // Clearance for floating pill navbar
+  padding-bottom: 90px;
+
+  @media (max-width: 767px) {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
 }
 
-.controls {
+.headerContainer {
+  text-align: center;
+  padding: 30px 20px 36px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 40px;
-  
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  align-items: center;
 }
 
-.searchWrapper {
-  position: relative;
-  width: 100%;
-  
-  @media (min-width: 768px) {
-    max-width: 320px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px 16px 10px 40px;
-    border-radius: 20px;
-    border: 1px solid $border-color;
-    font-size: 0.9rem;
-    font-family: $font-body;
-    color: $text-primary;
-    transition: all 0.25s ease;
-    background-color: $bg-white;
-    
-    &:focus {
-      outline: none;
-      border-color: $green-primary;
-      box-shadow: 0 0 0 3px rgba($green-primary, 0.1);
-    }
-  }
-  
-  .searchIcon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: $text-secondary;
-    pointer-events: none;
-  }
+.badge {
+  display: inline-block;
+  background: #112213;
+  color: #ffffff;
+  font-family: $font-heading;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+.mainTitle {
+  font-family: $font-heading;
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-weight: 700;
+  color: #122814;
+  margin: 0 0 12px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #556c57;
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.container {
+  margin-top: 16px;
+}
+
+/* ── Category Filter Section (matching Image 2) ── */
+.categorySection {
+  margin-bottom: 36px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.categoryLabel {
+  font-family: $font-heading;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #122814;
 }
 
 .categoryList {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 10px; // Space for scrollbar
+  padding-bottom: 8px;
   -webkit-overflow-scrolling: touch;
   flex-wrap: nowrap;
-  
-  // Hide scrollbar for a cleaner look
+
   &::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
-  
+
   @media (min-width: 768px) {
     flex-wrap: wrap;
     overflow-x: visible;
-    padding-bottom: 0;
   }
 }
 
 .categoryBtn {
   padding: 8px 20px;
-  border-radius: 20px;
-  border: 1px solid transparent;
+  border-radius: 9999px;
+  border: 1px solid #d4ded5;
   font-family: $font-heading;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  background-color: $bg-grey;
-  color: $text-secondary;
-  white-space: nowrap; // Ensure text stays on one line
-  
+  background-color: #ffffff;
+  color: #3b503d;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
   &:hover {
-    background-color: rgba($green-primary, 0.08);
-    color: $green-primary;
+    background-color: #f0f4f0;
+    color: #122814;
+    border-color: #bccabb;
   }
-  
+
   &.active {
-    background-color: $green-primary;
-    color: $bg-white;
-    border-color: $green-primary;
-    box-shadow: 0 4px 10px rgba($green-primary, 0.15);
+    background-color: #d4f938;
+    color: #0b1a0c;
+    border-color: #d4f938;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(212, 249, 56, 0.35);
   }
 }
 
+.searchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+    margin-top: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px 14px 8px 36px;
+    border-radius: 9999px;
+    border: 1px solid #d5ded6;
+    font-size: 0.85rem;
+    font-family: $font-body;
+    color: #122814;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $green-primary;
+      box-shadow: 0 0 0 3px rgba($green-primary, 0.1);
+    }
+  }
+
+  .searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #728773;
+    pointer-events: none;
+  }
+}
+
+/* ── 3-Column Grid matching Image 2 ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: 30px;
-  margin-top: 20px;
-  
-  @media (max-width: 576px) {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 10px;
+
+  @media (max-width: 991px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 }
@@ -115,19 +183,19 @@
 .noResults {
   text-align: center;
   padding: 80px 20px;
-  background-color: $bg-grey;
-  border-radius: $radius-card;
-  border: 1px dashed $border-color;
-  
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px dashed #d5ded6;
+
   h3 {
     font-family: $font-heading;
     font-size: 1.3rem;
-    color: $green-dark;
+    color: #122814;
     margin-bottom: 8px;
   }
-  
+
   p {
-    color: $text-secondary;
+    color: #617763;
     font-size: 0.95rem;
   }
 }

@@ -10,6 +10,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       className={styles.whatsappBtn}
       aria-label="Chat on WhatsApp"
+      suppressHydrationWarning
     >
       <MessageCircle size={32} />
     </Link>

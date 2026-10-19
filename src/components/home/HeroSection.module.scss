@@ -2,81 +2,369 @@
 
 .hero {
   position: relative;
-  color: $bg-white;
-  padding: 120px 0;
-  text-align: center;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: #0a2a0f;
   isolation: isolate;
-  /* Pull the section up so it fills behind the fixed transparent navbar */
-  margin-top: -72px;
+  background: #081d0a;
+  padding: 130px 0 60px;
+
+  @media (max-width: 767px) {
+    min-height: 88vh;
+    padding: 100px 0 44px;
+    border-radius: 0 0 32px 32px;
+  }
+}
+
+/* Custom cinematic lush green gradient overlay */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 68%, rgba(8, 22, 10, 0.9) 0%, rgba(8, 22, 10, 0.52) 48%, rgba(8, 22, 10, 0.18) 100%),
+    linear-gradient(to bottom, rgba(5, 16, 7, 0.55) 0%, rgba(5, 16, 7, 0.12) 32%, rgba(5, 16, 7, 0.35) 70%, rgba(5, 16, 7, 0.8) 100%);
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  width: 100%;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .content {
-  position: relative;
-  z-index: 10;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 680px;
+  text-align: left;
 }
 
+/* ── Pill Badge (matching CropIntel screenshot) ── */
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30, 48, 26, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 4px 14px 4px 4px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  animation: heroFadeUp 0.75s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @media (max-width: 767px) {
+    padding: 3px 12px 3px 3px;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+}
+
+.badgeTag {
+  background: #ffffff;
+  color: #0f2410;
+  font-family: $font-heading;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.badgeText {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: $font-heading;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ── Main Headline ── */
 .title {
-  font-size: 1.9rem;
+  font-family: $font-heading;
+  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
   color: #ffffff;
-  margin-bottom: 18px;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  animation: heroFadeUp 0.85s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @media (max-width: 767px) {
+    font-size: 2.3rem;
+    line-height: 1.12;
+    margin-bottom: 16px;
+  }
+}
+
+.breakDesktop {
+  display: none;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
+    display: inline;
   }
 }
 
+/* ── Subtitle ── */
 .subtitle {
-  font-size: 1rem;
+  font-size: clamp(0.96rem, 1.15vw, 1.1rem);
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.88);
   margin-bottom: 30px;
-  color: #ffffff;
-  font-weight: 500;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 0, 0, 0.5);
+  max-width: 580px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  animation: heroFadeUp 0.85s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @media (max-width: 767px) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
 }
 
+/* ── CTA Buttons ── */
 .buttonGroup {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  align-items: center;
+  gap: 14px;
   flex-wrap: wrap;
+  animation: heroFadeUp 0.85s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.primaryBtn {
-  background-color: $green-accent;
-  color: $bg-white;
-  padding: 11px 24px;
-  border-radius: $radius-btn;
+.limeBtn {
+  background: #d4f938;
+  color: #0b1c0c;
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-size: 0.94rem;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px -4px rgba(212, 249, 56, 0.45);
+  transition:
+    background 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background-color: #3d8c40;
-    transform: translateY(-2px);
+    background: #e2ff4f;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 32px -4px rgba(212, 249, 56, 0.65);
+  }
+
+  @media (max-width: 767px) {
+    padding: 12px 24px;
+    font-size: 0.9rem;
   }
 }
 
-.secondaryBtn {
-  background-color: transparent;
-  color: $bg-white;
-  padding: 11px 24px;
-  border-radius: $radius-btn;
-  border: 2px solid $bg-white;
+.ghostBtn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   font-family: $font-heading;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 
   &:hover {
-    background-color: $bg-white;
-    color: $green-dark;
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    padding: 11px 20px;
+    font-size: 0.88rem;
+  }
+}
+
+/* ── Floating Preview Card (Desktop Only) ── */
+.previewCardWrapper {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+    animation: heroFadeInRight 0.9s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+.previewCard {
+  display: block;
+  width: 250px;
+  background: rgba(22, 38, 20, 0.72);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 249, 56, 0.4);
+    box-shadow: 0 20px 42px -8px rgba(0, 0, 0, 0.65);
+
+    .cardTag {
+      color: #d4f938;
+    }
+  }
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.cardContent {
+  h4 {
+    font-family: $font-heading;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+}
+
+.cardTag {
+  font-family: $font-heading;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+/* ── Key Stats Section (matching Image 2) ── */
+.statsSection {
+  background-color: $bg-white;
+  padding: 44px 0 28px;
+
+  @media (max-width: 767px) {
+    padding: 36px 0 24px;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-family: $font-heading;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  color: #112812;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 767px) {
+    font-size: 1.95rem;
+  }
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #556b56;
+  font-weight: 500;
+  line-height: 1.45;
+
+  @media (max-width: 767px) {
+    font-size: 0.85rem;
+  }
+}
+
+.dividerContainer {
+  margin-top: 36px;
+
+  @media (max-width: 767px) {
+    margin-top: 28px;
+  }
+}
+
+.dashedDivider {
+  border-bottom: 1px dashed #d5ded6;
+  width: 100%;
+}
+
+/* ── Keyframes ── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

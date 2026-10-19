@@ -2,17 +2,15 @@
 
 .pageHero {
   position: relative;
-  padding: 142px 0 70px;
+  padding: 130px 0 60px;
   color: $bg-white;
   text-align: center;
   overflow: hidden;
-  min-height: 55vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   background: #0a2a0f;
   isolation: isolate;
-  /* Pull up behind the fixed transparent navbar — same pattern as HeroSection */
-  margin-top: -72px;
 }
 
 .content {
