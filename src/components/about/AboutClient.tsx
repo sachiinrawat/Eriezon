@@ -92,7 +92,7 @@ export default function AboutClient() {
             Eriezon Crop Science India Pvt. Ltd. is an ISO 9001:2015 certified agrochemical pioneer, bridging chemical formulation innovation with on-ground agricultural empowerment across major farming states in India.
           </p>
           <p>
-            Headquartered in the technological hub of Hinjewadi, Pune (Maharashtra), Eriezon was founded on the principle that modern crop science should be reliable, accessible, and adjusted to regional microclimates. Rather than distributing generic solutions, we specialize in premium crop-specific schedules and high-efficacy formulations spanning herbicides, fungicides, insecticides, and plant growth regulators.
+            Headquartered in Pune (Maharashtra), Eriezon was founded on the principle that modern crop science should be reliable, accessible, and adjusted to regional microclimates. Rather than distributing generic solutions, we specialize in premium crop-specific schedules and high-efficacy formulations spanning herbicides, fungicides, insecticides, and plant growth regulators.
           </p>
           <p>
             By leveraging a robust distribution-led operational network, we ensure that science-backed chemical remedies reach smallholder and commercial farmers with complete instructions. Through continuous village outreach and diagnostic tools, we strive to maximize yields while minimizing environmental impact.

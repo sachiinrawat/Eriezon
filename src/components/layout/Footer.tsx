@@ -49,11 +49,34 @@ export default function Footer() {
         </div>
         
         <div>
-          <h4 className={styles.heading}>Contact</h4>
+          <h4 className={styles.heading}>Contact Us</h4>
           <ul className={styles.linkList}>
-            <li>020-67320455</li>
-            <li>customercare@eriezon.com</li>
-            <li>Plot No. 30, 5th Floor, Tech Centre Phase-1, Rajiv Gandi Infotech Park, MIDC, Hinjewadi, Pune – Maharashtra – 411057</li>
+            <li>
+              <strong>Toll Free:</strong>{" "}
+              <a href="tel:18005691901">1800 569 1901</a>
+            </li>
+            <li>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:customercare@eriezon.com">customercare@eriezon.com</a>
+            </li>
+            <li>
+              <strong>Website:</strong>{" "}
+              <a href="https://www.eriezon.com" target="_blank" rel="noopener noreferrer">
+                www.eriezon.com
+              </a>
+            </li>
+            <li className={styles.addressItem}>
+              <strong>Marketed by:</strong>
+              <p>
+                Sr. No. 153/17, Opposite Tip Top Hotel, Expressway, Gaurav Icon Tower, Pune, Maharashtra - 411057
+              </p>
+            </li>
+            <li className={styles.addressItem}>
+              <strong>Reg. Office:</strong>
+              <p>
+                C-167, Alpha-1, Greater Noida (G.B. Nagar) U.P. India - 201310
+              </p>
+            </li>
           </ul>
         </div>
       </div>

@@ -819,7 +819,8 @@ The following content must be provided by Eriezon **before** respective pages ca
 ---
 
 _Document prepared for Eriezon Crop Science India Pvt. Ltd._
-_Plot No. 30, 5th Floor, Tech Centre Phase-1, Rajiv Gandi Infotech Park, MIDC, Hinjewadi, Pune – Maharashtra – 411057_
-_Customer Care: 020-67320455 | customercare@eriezon.com | www.eriezon.com_
+_Marketed by: Sr. No. 153/17, Opposite Tip Top Hotel, Expressway, Gaurav Icon Tower, Pune, Maharashtra - 411057_
+_Reg. Office: C-167, Alpha-1, Greater Noida (G.B. Nagar) U.P. India - 201310_
+_Toll Free No: 18005691901 | customercare@eriezon.com | www.eriezon.com_
 
 > This document is confidential and intended for internal use only.
